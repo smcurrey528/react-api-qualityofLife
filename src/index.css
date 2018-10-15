@@ -6,9 +6,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Playfair Display', serif;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.title {
+  display: flex;
+  align-content: center;
+  background-image: url('https://images.unsplash.com/photo-1517511620798-cec17d428bc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a65984a12051e9753f748c5909faca97&auto=format&fit=crop&w=1050&q=80');
+  background-color: #e65100 ;
+  color: white;
+  height: 50%;
+}
+
+header {
+  background-image: url('https://images.unsplash.com/photo-1517511620798-cec17d428bc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a65984a12051e9753f748c5909faca97&auto=format&fit=crop&w=1050&q=80');
+  background-repeat: no-repeat;
+  background-position: cover;
+  padding: 30px;
+  background-position: center center;
+  position: relative;
+  background-size: cover;
+  background-color: #a3a8b0;
 }

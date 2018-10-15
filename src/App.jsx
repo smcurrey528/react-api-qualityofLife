@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Nav from "./Nav.jsx";
 
 class App extends Component {
  constructor(props) {
@@ -22,7 +23,7 @@ class App extends Component {
       .then(data => {
         this.setState(prevState => ({
           summary: data.summary,
-          score: data.teleport_city_score,
+          score: Math.floor(data.teleport_city_score),
           housing: data.categories[0].name})
         )
       })
@@ -45,7 +46,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <h1> Quality of Life </h1>
+      <header>
+       <img src="https://i.imgur.com/yxCvhFE.png"/>
+
+      </header>
+
+        <section>
+       <h1> Pick A City </h1>
+        </section>
           <form>
           <input onChange={(e) => this.onInput(e)}  placeholder="Enter city name here..."/>
          <button onClick={(e) => this.onEnter(e)}> SUMBIT
