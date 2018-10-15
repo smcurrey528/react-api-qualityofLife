@@ -24,15 +24,19 @@ QualLi is a web application built in React.js, which the user will be able to se
 ## Wireframes
 
 Overview of Priorities/Wireframes/MVP 
+</br> 
 ![](https://i.imgur.com/Z0mZGkM.jpg)
 
 Priority Matrix: 
+</br> 
 ![](https://i.imgur.com/I4T0SX6.jpg)
 
 Wireframe: 
+</br> 
 ![](https://i.imgur.com/YArAgKB.jpg)
 
 MVP/Post-MVP: 
+</br> 
 ![](https://i.imgur.com/aMivvqN.jpg)
 
 
@@ -45,6 +49,7 @@ Include a full list of features that have been prioritized based on the `Time an
 The functionality is divided into two separate lists: MPV and PostMVP.  The Minimimum Viable Product (MVP) will be the items that are incorporated into the application, and the Post-MVP items will be added if there is enough time.
 
 Image of MVP and Post-MVP:
+</br> 
 ![](https://i.imgur.com/aMivvqN.jpg)
 
 #### MVP 
@@ -66,7 +71,8 @@ Image of MVP and Post-MVP:
 
 ## React Architectural Design
 
-Architectural Design: 
+Architectural Design:
+</br> 
 
 ![](https://i.imgur.com/0Xkwjvy.jpg)
 
