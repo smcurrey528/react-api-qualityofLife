@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from "./Nav.jsx";
+import Categories from './Categories';
 
 class App extends Component {
  constructor(props) {
@@ -11,6 +12,8 @@ class App extends Component {
     place: '',
     housing: '',
     location: '',
+    housingScore: '',
+
 
   }
  }
@@ -24,7 +27,10 @@ class App extends Component {
         this.setState(prevState => ({
           summary: data.summary,
           score: Math.floor(data.teleport_city_score),
-          housing: data.categories[0].name})
+          housing: data.categories[0].name,
+          housingScore: Math.floor(data.categories[0].score_out_of_10)
+        }),
+
         )
       })
     }
@@ -44,6 +50,8 @@ class App extends Component {
 
 
   render() {
+
+    let description = this.state.summary
     return (
       <div className="App">
       <header>
@@ -60,9 +68,13 @@ class App extends Component {
           </button>
           </form>
          <ul>
-          <li> {this.state.summary} </li>
-          <li> {this.state.score}</li>
+          <li> {description} </li>
+          <li> Overall Quality of Life: {this.state.score}</li>
+          <div className="Housing">
           <li>  {this.state.housing}</li>
+          <li> {this.state.housingScore}</li>
+          </div>
+          <Categories summary={this.props.summary}/>
           </ul>
       </div>
     );

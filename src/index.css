@@ -34,3 +34,7 @@ header {
   background-size: cover;
   background-color: #a3a8b0;
 }
+
+ul {
+  list-style: none;
+}
