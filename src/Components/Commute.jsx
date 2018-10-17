@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class Nav extends Component {
+class Commute extends Component {
   render() {
     return(
       )
   }
 }
-export default Nav;
+export default Commute;

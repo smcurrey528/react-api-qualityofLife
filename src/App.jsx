@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Nav from "./Nav.jsx";
-import Categories from './Categories';
+import Nav from "./Components/Nav.jsx";
+import Categories from './Components/Categories.jsx';
+import CityImage from './Components/CityImage'
 
 class App extends Component {
  constructor(props) {
@@ -10,25 +11,26 @@ class App extends Component {
     summary: '',
     score: '',
     place: '',
-    housing: '',
+    categories: '',
     location: '',
-    housingScore: '',
+
 
 
   }
  }
 
  getData() {
-    let location= this.state.place;
+    let location= this.state.value;
     let url =`https://api.teleport.org/api/urban_areas/slug:nashville/scores/`
     fetch(url)
       .then(res => res.json() )
       .then(data => {
+        console.log(data.categories)
         this.setState(prevState => ({
           summary: data.summary,
           score: Math.floor(data.teleport_city_score),
-          housing: data.categories[0].name,
-          housingScore: Math.floor(data.categories[0].score_out_of_10)
+          categories: data.categories,
+
         }),
 
         )
@@ -50,11 +52,17 @@ class App extends Component {
 
 
   render() {
-
+ console.log(this.state.categories)
     let description = this.state.summary
+      let allScores = this.props.categories.map((d,index) => {
+      return(
+        <div> categories= {d.name} key={index} </div>
+        )
+    })
     return (
       <div className="App">
       <header>
+      <Nav/>
        <img src="https://i.imgur.com/yxCvhFE.png"/>
 
       </header>
@@ -67,6 +75,9 @@ class App extends Component {
          <button onClick={(e) => this.onEnter(e)}> SUMBIT
           </button>
           </form>
+          <CityImage />
+          <li> {this.state.categories[0]}</li>
+
          <ul>
           <li> {description} </li>
           <li> Overall Quality of Life: {this.state.score}</li>
@@ -74,7 +85,7 @@ class App extends Component {
           <li>  {this.state.housing}</li>
           <li> {this.state.housingScore}</li>
           </div>
-          <Categories summary={this.props.summary}/>
+
           </ul>
       </div>
     );
