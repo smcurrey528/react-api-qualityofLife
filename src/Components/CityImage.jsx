@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class CityImage extends Component {
   state ={
-    value: ''
+    value: '',
+    image: ''
   }
 
   onInput(e) {
@@ -21,7 +22,7 @@ class CityImage extends Component {
     fetch(url)
       .then(res => res.json() )
       .then(data => {
-        console.log('this is from CityImage', data.image)
+        console.log('this is from CityImage', data)
         this.setState(prevState => ({
           image: data.photos.image.web,
 
@@ -35,7 +36,9 @@ class CityImage extends Component {
 
   render() {
     return(
-      <img src={this.props.image} alt="Cityscape"/>
+      <div>
+      <img src={this.state.image} alt="Cityscape"/>
+      </div>
       )
   }
 }
