@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from "./Components/Nav.jsx";
-import Categories from './Components/Categories.jsx';
+// import Categories from './Components/Categories.jsx';
 import CityImage from './Components/CityImage'
 
 class App extends Component {
@@ -13,6 +13,7 @@ class App extends Component {
     value: '',
     categories: '',
     location: '',
+    init: true,
 
 
 
@@ -20,7 +21,6 @@ class App extends Component {
  }
 
  getData() {
-    let location= this.state.value;
     let url =`https://api.teleport.org/api/urban_areas/slug:${this.state.value}/scores/`
     fetch(url)
       .then(res => res.json() )
@@ -31,7 +31,8 @@ class App extends Component {
           scoreTotal: Math.floor(data.teleport_city_score),
           name: data.categories.name,
           score: data.categories.score_out_of_10,
-          value: ''
+          value: '',
+
 
         }),
 
@@ -62,7 +63,7 @@ class App extends Component {
       <div className="App">
       <header>
       <Nav/>
-       <img src="https://i.imgur.com/yxCvhFE.png"/>
+       <img src="https://i.imgur.com/yxCvhFE.png" alt='background sunset'/>
 
       </header>
 
@@ -74,7 +75,7 @@ class App extends Component {
          <button onClick={(e) => this.onEnter(e)}> SUMBIT
           </button>
           </form>
-          <CityImage />
+          <CityImage value={this.state.value} onChange={(e) => this.onInput(e)}/>
           <div> {cityName.toUpperCase()} </div>
 
 
@@ -95,3 +96,5 @@ class App extends Component {
 
 
 export default App;
+
+ //<Categories categories={this.state.categories}/>

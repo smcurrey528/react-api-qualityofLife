@@ -7,7 +7,7 @@ import CategoryItem from './CategoryItem.jsx';
 //     console.log('this is from categories', this.props.categories)
 //     let allScores = this.props.categories.map((d,index) => {
 //       return(
-//         <CategoryItem categories={d.name} key={index} />
+//         <CategoryItem name={d.name} score={d.score_out_of_10} key={index} />
 //         )
 //     })
 //     return(

@@ -7,8 +7,8 @@ class CategoryItem extends Component {
       <div>
       <CityImage />
       <div className="score-summary">
-      <h3> {this.props.categories.name} </h3>
-       <h3> {this.props.categories.score_out_of_10} </h3>
+      <h3> {this.props.name} </h3>
+       <h3> {this.props.score} </h3>
       </div>
       </div>
 
