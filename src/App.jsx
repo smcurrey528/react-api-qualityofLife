@@ -10,7 +10,7 @@ class App extends Component {
   this.state = {
     summary: '',
     score: '',
-    place: '',
+    value: '',
     categories: '',
     location: '',
 
@@ -21,15 +21,17 @@ class App extends Component {
 
  getData() {
     let location= this.state.value;
-    let url =`https://api.teleport.org/api/urban_areas/slug:nashville/scores/`
+    let url =`https://api.teleport.org/api/urban_areas/slug:${this.state.value}/scores/`
     fetch(url)
       .then(res => res.json() )
       .then(data => {
-        console.log(data.categories)
+        console.log('this is from getData', data.categories)
         this.setState(prevState => ({
           summary: data.summary,
-          score: Math.floor(data.teleport_city_score),
-          categories: data.categories,
+          scoreTotal: Math.floor(data.teleport_city_score),
+          name: data.categories.name,
+          score: data.categories.score_out_of_10,
+          value: ''
 
         }),
 
@@ -41,7 +43,7 @@ class App extends Component {
 
   onInput(e) {
     this.setState({
-      location: e.target.value
+      value: e.target.value
     })
   }
 
@@ -52,13 +54,10 @@ class App extends Component {
 
 
   render() {
- console.log(this.state.categories)
-    let description = this.state.summary
-      let allScores = this.props.categories.map((d,index) => {
-      return(
-        <div> categories= {d.name} key={index} </div>
-        )
-    })
+
+    let description = this.state.summary;
+    let cityName = this.state.value;
+
     return (
       <div className="App">
       <header>
@@ -71,16 +70,18 @@ class App extends Component {
        <h1> Pick A City </h1>
         </section>
           <form>
-          <input onChange={(e) => this.onInput(e)}  placeholder="Enter city name here..."/>
+          <input value={this.state.value} onChange={(e) => this.onInput(e)}  placeholder="Enter city name here..."/>
          <button onClick={(e) => this.onEnter(e)}> SUMBIT
           </button>
           </form>
           <CityImage />
-          <li> {this.state.categories[0]}</li>
+          <div> {cityName.toUpperCase()} </div>
+
 
          <ul>
+          <li> Overall Quality of Life: {this.state.scoreTotal}</li>
+          <li> {cityName} </li>
           <li> {description} </li>
-          <li> Overall Quality of Life: {this.state.score}</li>
           <div className="Housing">
           <li>  {this.state.housing}</li>
           <li> {this.state.housingScore}</li>

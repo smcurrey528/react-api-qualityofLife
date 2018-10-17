@@ -3,9 +3,8 @@ import CategoryItem from './CategoryItem.jsx';
 
 // class Categories extends Component {
 //   render() {
-//     // let score = this.props.categories
-//     // console.log(score)
-//     console.log(this.props.categories)
+
+//     console.log('this is from categories', this.props.categories)
 //     let allScores = this.props.categories.map((d,index) => {
 //       return(
 //         <CategoryItem categories={d.name} key={index} />
