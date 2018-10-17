@@ -151,5 +151,15 @@ function reverse(string) {
  Use this section to list of all major issues encountered and their resolution.
 
 #### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ERROR**: App.jsx:26 Uncaught (in promise) SyntaxError: Unexpected token S in JSON at position 0
+    at App.jsx:26                               
+**RESOLUTION**: 
+
+
+**ERROR**: this.props.categories.map is not a function                              
+**RESOLUTION**: 
+
+**ERROR**: Broken image tag on the city                              
+**RESOLUTION**: 
+
+
