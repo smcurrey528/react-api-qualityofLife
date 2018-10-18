@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CategoryItem from './CategoryItem.jsx';
-// import Chart from './Components/Chart';
+import Chart from './Chart';
 
 class Categories extends Component {
   render() {
@@ -15,7 +15,9 @@ class Categories extends Component {
     return(
       <div>
       <h1> {allScores}  </h1>
+      <Chart score={this.props.score} categories={this.props.categories}/>
       </div>
+
       )
   }
 }

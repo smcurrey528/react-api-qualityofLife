@@ -5,7 +5,6 @@ class CategoryItem extends Component {
 
 
   render() {
-    // let roundUpScore = Math.floor({this.props.score})
     return(
       <div className="info">
       <div className="score-summary">

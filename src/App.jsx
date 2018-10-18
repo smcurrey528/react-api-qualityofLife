@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from "./Components/Nav.jsx";
 import Categories from './Components/Categories.jsx';
-// import Chart from './Components/Chart';
-// import * as d3 from "d3";
+import Chart from './Components/Chart';
+import * as d3 from "d3";
 
 class App extends Component {
  constructor(props) {
