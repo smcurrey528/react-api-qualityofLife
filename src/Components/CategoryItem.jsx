@@ -9,8 +9,8 @@ class CategoryItem extends Component {
     return(
       <div>
       <div className="score-summary">
-      <h3> {this.props.name} </h3>
-       <h3> {this.props.score} </h3>
+      <h6 className="qolType"> {this.props.name}: </h6>
+       <h6> {Math.floor(this.props.score)} </h6>
       </div>
       </div>
 

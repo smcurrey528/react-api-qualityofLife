@@ -88,7 +88,7 @@ class App extends Component {
         <section>
        <h1> Pick A City </h1>
         </section>
-      <form>
+      <form className="form">
             <input
             value={cityName}
             onChange={(e) => this.onInput(e)}

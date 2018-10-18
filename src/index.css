@@ -45,3 +45,18 @@ ul {
   height: 100%;
   height: 300px;
 }
+
+.score-summary {
+  display: inline-flex;
+  height: 10px;
+
+}
+
+.form {
+  margin-bottom: 20px;
+
+}
+
+.qolType {
+  padding-right: 5px;
+}
