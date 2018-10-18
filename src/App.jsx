@@ -75,7 +75,9 @@ class App extends Component {
     let description = this.state.summary;
     description = description.replace(/<p>/g, ' ').replace(/<b>/g, ' ').replace(/</g, ' ').replace(/>/g, ' ').replace(/\/p/g, ' ').replace(/\/b/g, ' ')
     let cityName = this.state.value
-    cityName= cityName.replace(/ /g, "-");
+    cityName= cityName.replace(/ /g, "-")
+
+
 
 
     return (

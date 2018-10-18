@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 
 
-
 const dataset = [
   { key: 0, value: 5 },
   { key: 1, value: 10 },
@@ -12,7 +11,7 @@ const dataset = [
   { key: 18, value: 23 },
   { key: 19, value: 25 }
 ];
-debugger;
+
 class Chart extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +22,9 @@ class Chart extends React.Component {
     };
   }
 
+
   componentDidMount() {
+   console.log(this.props.score)
     this.renderChart();
   }
 
@@ -32,7 +33,7 @@ class Chart extends React.Component {
     let scaleBandX = d3
       .scaleBand()
       .domain(d3.range(dataset.length))
-      .range([20, this.state.width])
+      .range([10, this.state.width])
       .paddingInner(0.05);
     // yScale
     let scaleLinearY = d3
@@ -47,7 +48,7 @@ class Chart extends React.Component {
     let scaleLinearColor = d3
       .scaleLinear()
       .domain([0, d3.max(dataset, d => d.value)])
-      .range(["orange", "lightorange"]);
+      .range(["orange", "green"]);
 
     // create an svg
     let svg = d3

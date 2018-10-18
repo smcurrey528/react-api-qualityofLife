@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Chart from './Chart';
 
 class CategoryItem extends Component {
 
@@ -9,8 +9,11 @@ class CategoryItem extends Component {
       <div className="info">
       <div className="score-summary">
       <h6 className="qolType"> {this.props.name}: </h6>
-       <h6> {Math.floor(this.props.score)} </h6>
+      <h6> {Math.floor(this.props.score)} </h6>
+
+        <Chart score={this.props.score} />
       </div>
+
       </div>
 
       )
@@ -18,3 +21,5 @@ class CategoryItem extends Component {
 }
 
 export default CategoryItem;
+
+

@@ -14,8 +14,8 @@ class Categories extends Component {
     })
     return(
       <div>
-      <h1> {allScores}  </h1>
-      <Chart score={this.props.score} categories={this.props.categories}/>
+      <h1> {allScores} </h1>
+
       </div>
 
       )
