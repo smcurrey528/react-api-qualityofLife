@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CategoryItem from './CategoryItem.jsx';
+// import Chart from './Components/Chart';
 
 class Categories extends Component {
   render() {
@@ -8,6 +9,7 @@ class Categories extends Component {
     let allScores = this.props.categories.map((d,index) => {
       return(
         <CategoryItem name={d.name} score={d.score_out_of_10} key={index} />
+
         )
     })
     return(

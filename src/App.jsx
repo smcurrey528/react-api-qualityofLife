@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from "./Components/Nav.jsx";
 import Categories from './Components/Categories.jsx';
-// import CityImage from './Components/CityImage'
+// import Chart from './Components/Chart';
+// import * as d3 from "d3";
 
 class App extends Component {
  constructor(props) {
@@ -73,7 +74,7 @@ class App extends Component {
 
     let description = this.state.summary;
     description = description.replace(/<p>/g, ' ').replace(/<b>/g, ' ').replace(/</g, ' ').replace(/>/g, ' ').replace(/\/p/g, ' ').replace(/\/b/g, ' ')
-    let cityName = this.state.value;
+    let cityName = this.state.value
     cityName= cityName.replace(/ /g, "-");
 
 
