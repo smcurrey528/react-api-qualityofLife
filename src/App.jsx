@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from "./Components/Nav.jsx";
-// import Categories from './Components/Categories.jsx';
-import CityImage from './Components/CityImage'
+import Categories from './Components/Categories.jsx';
+// import CityImage from './Components/CityImage'
 
 class App extends Component {
  constructor(props) {
@@ -32,6 +32,7 @@ class App extends Component {
           name: data.categories.name,
           score: data.categories.score_out_of_10,
           value: '',
+          categories: data.categories
 
 
         }),
@@ -71,9 +72,9 @@ class App extends Component {
   render() {
 
     let description = this.state.summary;
-    description = description.replace(/\<p>/g, ' ')
+    description = description.replace(/\<p>/g, ' ');
     let cityName = this.state.value;
-    cityName= cityName.replace(/\ /g, '-');
+    cityName= cityName.replace(/\ /g, '-')
 
 
     return (
@@ -99,22 +100,11 @@ class App extends Component {
      </form>
 
           <img className="cityImage" src={this.state.image} alt="Cityscape"/>
-
-
-
           <div> {cityName.toUpperCase()} </div>
+            <h2> Overall Quality of Life: {this.state.scoreTotal}</h2>
+            <p> {description} </p>
+         <Categories categories={this.state.categories}/>
 
-
-         <ul>
-            <li> Overall Quality of Life: {this.state.scoreTotal}</li>
-            <li> {cityName} </li>
-            <li> {description} </li>
-          <div className="Housing">
-            <li>  {this.state.housing}</li>
-            <li> {this.state.housingScore}</li>
-          </div>
-
-        </ul>
       </div>
     );
   }
@@ -123,4 +113,4 @@ class App extends Component {
 
 export default App;
 
- //<Categories categories={this.state.categories}/>
+
