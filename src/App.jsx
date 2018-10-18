@@ -72,9 +72,9 @@ class App extends Component {
   render() {
 
     let description = this.state.summary;
-    description = description.replace(/\<p>/g, ' ');
+    description = description.replace(/<p>/g, ' ').replace(/<b>/g, ' ').replace(/</g, ' ').replace(/>/g, ' ').replace(/\/p/g, ' ').replace(/\/b/g, ' ')
     let cityName = this.state.value;
-    cityName= cityName.replace(/\ /g, '-')
+    cityName= cityName.replace(/ /g, "-");
 
 
     return (
@@ -86,7 +86,7 @@ class App extends Component {
       </header>
 
         <section>
-       <h1> Pick A City </h1>
+       <h1> Pick A World Class City </h1>
         </section>
       <form className="form">
             <input
@@ -98,10 +98,9 @@ class App extends Component {
             onClick={(e) => this.onEnter(e)}> SUMBIT
           </button>
      </form>
-
           <img className="cityImage" src={this.state.image} alt="Cityscape"/>
           <div> {cityName.toUpperCase()} </div>
-            <h2> Overall Quality of Life: {this.state.scoreTotal}</h2>
+            <h2> Overall Quality of Life Score: {this.state.scoreTotal}</h2>
             <p> {description} </p>
          <Categories categories={this.state.categories}/>
 
