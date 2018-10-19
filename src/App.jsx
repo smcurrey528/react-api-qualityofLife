@@ -27,12 +27,12 @@ class App extends Component {
       .then(data => {
         console.log('this is from getData', data.categories)
         this.setState(prevState => ({
-          summary: data.summary,
+          summary: data.summary? data.summary : '',
           scoreTotal: Math.floor(data.teleport_city_score),
           name: data.categories ? data.categories.name : '',
-          score: data.categories.score_out_of_10,
+          score: data.categories? data.categories.score_out_of_10 : '',
           value: '',
-          categories: data.categories
+          categories: data.categories? data.categories : '',
 
 
         }),

@@ -8,7 +8,7 @@ class Chart extends Component {
     this.state = {
       score: this.props.score,
       width: 100,
-      height: 50
+      height: 10
     };
   }
 
@@ -18,6 +18,10 @@ class Chart extends Component {
     this.renderChart();
   }
 
+  componentDidUpdate() {
+    this.renderChart()
+  }
+
   renderChart() {
     // xScale
     let colorScale = d3.scaleLinear().range(['lightgreen', 'green'])
@@ -25,50 +29,50 @@ class Chart extends Component {
 
     let scaleBandX = d3
       .scaleBand()
-      .domain(d3.range(this.props.score.length))
+      .domain([0, 10])
       .range([10, this.state.width])
-      .paddingInner(0.05);
-    // yScale
-    let scaleLinearY = d3.scaleLinear()
-      .domain([0, d3.max(this.props.score, d => d.value)])
-      .range([this.state.height, 0]);
+      // .paddingInner(0.05);
+
+
 
     let scaleSequentialColor = d3
       .scaleSequential(d3.interpolatePiYG)
-      .domain([0, this.props.score.length - 1]);
+      .domain([0, 10]);
 
     let scaleLinearColor = d3.scaleLinear()
-      .domain([0, d3.max(this.props.score, d => d.value)])
-      .range(["green", "lightgreen"]);
+      .domain([0, 10])
+      .range(["lightblue", "blue"]);
 
     // create an svg
-    let svg = d3
-      .select(this.chart)
-      .attr("width", this.state.width + 20)
-      .attr("height", this.state.height);
+    let node = this.node
+    // let svg = d3
+    //   .select(node)
+    //   .attr("width", this.state.width + 20)
+    //   .attr("height", this.state.height);
 
     // DATA BIND
-    let rects = svg.selectAll("rect").data(this.props.score);
+    let rects = d3.select(node).selectAll("rect").data([this.props.score])
     // ENTER
     rects
       .enter()
       .append("rect")
-      .attr("x", d => scaleLinearY(d.value))
-      .attr("y", (d, i) => scaleBandX(i))
-      .attr("width", scaleBandX.bandwidth())
-      .attr("height", d => this.state.height - scaleLinearY(d.value))
-      .style("fill", (d,i) => scaleLinearColor(d.frequency))
-      .style("fill", (d,i) => scaleLinearColor(d.value));
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", d => d*10)
+      .attr("height", 10)
+
+      .style("fill", (d,i) => scaleLinearColor(d))
+
 
   }
 
   render() {
     return (
       <svg
-        ref={node => (this.chart = node)}
-        className="chart"
-        width={this.state.width}
-        height={this.state.height}
+        ref={node => this.node = node}
+
+        width='100'
+        height='10'
       />
     );
   }
