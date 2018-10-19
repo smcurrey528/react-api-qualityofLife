@@ -11,7 +11,7 @@ This is my schedule I will use to keep track of my progress throughout the week 
 |Monday, Oct 15th| Project Description | Complete 
 |Tuesday, Oct 16th| Wireframes / Priority Matrix / Functional Components | Complete
 |Wednesday, Oct 17th| Core Application Structure (HTML, CSS, etc.) | Complete
-|Thursday, Oct 18th| Pseudocode / actual code | Incomplete
+|Thursday, Oct 18th| Pseudocode / actual code | Complete
 |Friday, Oct 19th| Initial Clickable Model  | Incomplete
 |Sunday, Oct 21st| MVP | Incomplete
 |Monday, Oct 22nd| Present | Incomplete
@@ -117,12 +117,12 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | HTML and CSS| L | 3hrs| 2hrs | hrs |
 | CRA Built| H | .10hrs| .10hrs | .10hrs |
 | Deployed via GitHub| H | .05hrs| .05hrs | .05hrs |
-| D3| L | 3hrs| hrs | hrs |
+| D3| L | 3hrs| 5hrs | hrs |
 | CSS Animations| L | 3hrs| hrs | hrs |
 | Routing| L | 3hrs| hrs | hrs |
 | Location Storage| L | 2hrs| hrs | hrs |
 | Comparisons| L | 5hrs| hrs | hrs |
-| Total | H | 36.15hrs| 15.15hrs | 5hrs |
+| Total | H | 36.15hrs| 20.15hrs | 5hrs |
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
