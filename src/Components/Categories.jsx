@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CategoryItem from './CategoryItem.jsx';
-import Chart from './Chart';
+
 
 class Categories extends Component {
   render() {

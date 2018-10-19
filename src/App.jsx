@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from "./Components/Nav.jsx";
 import Categories from './Components/Categories.jsx';
-import Chart from './Components/Chart';
-import * as d3 from "d3";
+
 
 class App extends Component {
  constructor(props) {
@@ -30,7 +29,7 @@ class App extends Component {
         this.setState(prevState => ({
           summary: data.summary,
           scoreTotal: Math.floor(data.teleport_city_score),
-          name: data.categories.name,
+          name: data.categories ? data.categories.name : '',
           score: data.categories.score_out_of_10,
           value: '',
           categories: data.categories
@@ -69,7 +68,6 @@ class App extends Component {
       this.getAPI()
     }
 
-
   render() {
 
     let description = this.state.summary;
@@ -77,37 +75,33 @@ class App extends Component {
     let cityName = this.state.value
     cityName= cityName.replace(/ /g, "-")
 
-
-
-
-    return (
+    const cityImg = !this.state.image ? '' : <img className="cityImage" src={this.state.image} alt="Cityscape"/>
+    const lifeScore = !this.state.score ? '' :  <h2> Overall Quality of Life Score: {this.state.scoreTotal}</h2>
+     return (
       <div className="App">
-      <header>
-      <Nav/>
-       <img src="https://i.imgur.com/yxCvhFE.png" alt='background sunset'/>
-
-      </header>
-
+        <header>
+          <Nav/>
+          <img src="https://i.imgur.com/yxCvhFE.png" alt='background sunset'/>
+        </header>
         <section>
-       <h1> Pick A World Class City </h1>
+          <h1> Pick A World Class City </h1>
         </section>
-      <form className="form">
-            <input
+        <form className="form">
+          <input
             value={cityName}
             onChange={(e) => this.onInput(e)}
             placeholder="Enter city name here..."
-            />
+          />
          <button
             onClick={(e) => this.onEnter(e)}> SUMBIT
           </button>
-     </form>
-          <img className="cityImage" src={this.state.image} alt="Cityscape"/>
-          <div> {cityName.toUpperCase()} </div>
-            <h2> Overall Quality of Life Score: {this.state.scoreTotal}</h2>
-            <p> {description} </p>
-         <Categories categories={this.state.categories}/>
-
-      </div>
+        </form>
+        { cityImg }
+        <div> {cityName.toUpperCase()} </div>
+          {lifeScore}
+          <p> {description} </p>
+          <Categories categories={this.state.categories}/>
+        </div>
     );
   }
 }

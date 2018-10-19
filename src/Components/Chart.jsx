@@ -2,61 +2,53 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 
 
-const dataset = [
-  { key: 0, value: 5 },
-  { key: 1, value: 10 },
-  { key: 2, value: 13 },
-  { key: 3, value: 19 },
-  { key: 17, value: 18 },
-  { key: 18, value: 23 },
-  { key: 19, value: 25 }
-];
-
-class Chart extends React.Component {
+class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataset: this.props.dataset,
-      width: 600,
-      height: 250
+      score: this.props.score,
+      width: 100,
+      height: 50
     };
   }
 
 
   componentDidMount() {
-   console.log(this.props.score)
+   console.log('this is from D3', this.props.score)
     this.renderChart();
   }
 
   renderChart() {
     // xScale
+    let colorScale = d3.scaleLinear().range(['lightgreen', 'green'])
+    colorScale.domain(d3.extent(this.props.score, d => d.frequency))
+
     let scaleBandX = d3
       .scaleBand()
-      .domain(d3.range(dataset.length))
+      .domain(d3.range(this.props.score.length))
       .range([10, this.state.width])
       .paddingInner(0.05);
     // yScale
-    let scaleLinearY = d3
-      .scaleLinear()
-      .domain([0, d3.max(dataset, d => d.value)])
+    let scaleLinearY = d3.scaleLinear()
+      .domain([0, d3.max(this.props.score, d => d.value)])
       .range([this.state.height, 0]);
 
     let scaleSequentialColor = d3
       .scaleSequential(d3.interpolatePiYG)
-      .domain([0, dataset.length - 1]);
+      .domain([0, this.props.score.length - 1]);
 
-    let scaleLinearColor = d3
-      .scaleLinear()
-      .domain([0, d3.max(dataset, d => d.value)])
-      .range(["orange", "green"]);
+    let scaleLinearColor = d3.scaleLinear()
+      .domain([0, d3.max(this.props.score, d => d.value)])
+      .range(["green", "lightgreen"]);
 
     // create an svg
     let svg = d3
       .select(this.chart)
       .attr("width", this.state.width + 20)
       .attr("height", this.state.height);
+
     // DATA BIND
-    let rects = svg.selectAll("rect").data(dataset);
+    let rects = svg.selectAll("rect").data(this.props.score);
     // ENTER
     rects
       .enter()
@@ -65,7 +57,8 @@ class Chart extends React.Component {
       .attr("y", (d, i) => scaleBandX(i))
       .attr("width", scaleBandX.bandwidth())
       .attr("height", d => this.state.height - scaleLinearY(d.value))
-      .style("fill", (d,i) => scaleSequentialColor (i));
+      .style("fill", (d,i) => scaleLinearColor(d.frequency))
+      .style("fill", (d,i) => scaleLinearColor(d.value));
 
   }
 

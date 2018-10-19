@@ -50,6 +50,7 @@ ul {
   display: inline-flex;
   height: 10px;
 
+
 }
 
 .form {
@@ -60,8 +61,15 @@ ul {
 .qolType {
 
   padding-right: 10px;
+
 }
 
 .info {
   margin: -35px;
+}
+
+svg {
+ /* background-color: orange;*/
+  margin-left:  10px;
+  border: 1px solid;
 }

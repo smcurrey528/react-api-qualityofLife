@@ -11,9 +11,8 @@ class CategoryItem extends Component {
       <h6 className="qolType"> {this.props.name}: </h6>
       <h6> {Math.floor(this.props.score)} </h6>
 
-        <Chart score={this.props.score} />
       </div>
-
+    <Chart score={this.props.score} />
       </div>
 
       )
