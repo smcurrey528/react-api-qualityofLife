@@ -16,7 +16,7 @@ class Chart extends Component {
 
 componentDidMount() {
    console.log('this is from did Mount', this.props.score)
-    this.renderChart();
+   this.renderChart();
   }
 
 componentDidUpdate() {
@@ -28,9 +28,8 @@ renderChart() {
     let scaleLinearColor = d3.scaleLinear()
       .domain([0, 10])
       .range(["red", "blue"]);
-    // create an svg
     let node = this.node
-    // DATA BIND
+    // data bind and removing old data
     let oldrects= d3.select(node).selectAll("rect").remove()
     let rects = d3.select(node).selectAll("rect").data([this.props.score])
     // ENTER

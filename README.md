@@ -74,7 +74,7 @@ https://i.imgur.com/aMivvqN.jpg
 Architectural Design:
 </br> 
 
-![](https://i.imgur.com/0Xkwjvy.jpg)
+https://i.imgur.com/0Xkwjvy.jpg
 
 The main component will be the APP which will contain the "Header", "Menu", and "Categories." The Header will contain the Nav. The Menu will contain the Hero Image. The Categories will hold the following components: 
 Catergory Items
@@ -93,7 +93,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | CategoryItems | This will render the mapped category items individual sections | 
 | CityImage | This will render the input value's background image |   
 | Chart | This will render the D3 of the data from the API | 
-| Compare | This will render a comparision page of different cities |
+
 
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
@@ -102,18 +102,15 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | Adding Menu| H | 1hrs| .5hrs | .5hrs |
 | Fetch API| H | 1hrs| 1hrs | 1hrs |
-| Creating Components| H | 3hrs| 3hrs | 3hrs |
-| Working with API | H | 4hrs| 5hrs | 5 |
-| Conditional Rendering| L | 2hrs| 1hrs | 1hrs |
+| Creating Components| H | 5hrs| 5hrs | 5hrs |
+| Working with API | H | 4hrs| 6hrs | 6hrs |
+| Conditional Rendering| L | 2hrs| 2hrs | 2hrs |
 | HTML and CSS| L | 3hrs| 5hrs | 5hrs |
 | CRA Built| H | .10hrs| .10hrs | .10hrs |
 | Deployed via GitHub| H | .05hrs| .05hrs | .05hrs |
-| D3| L | 3hrs| 8hrs | 7hrs |
-| CSS Animations| L | 3hrs| 0hrs | 0hrs |
-| Routing| L | 3hrs| 1hrs | 1hrs |
-| Mobile Responsive| H | 3hrs| 2hrs | 2hrs |
-| Comparisons| L | 5hrs| 8hrs | 8hrs |
-| Total | H | 36.15hrs| 34.65hrs | 34.65hrs |
+| D3| L | 6hrs| 8hrs | 8hrs |
+| Mobile Responsive| H | 3hrs| 3hrs | 3hrs |
+| Total | H | 36.15hrs| 36.65hrs | 34.65hrs |
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
@@ -129,7 +126,7 @@ D3: D3.js is a JavaScript library for producing dynamic, interactive data visual
 
 ## Code Snippet
 
-This is a code snippet of my D3.js functionality, and this is being passed the this.props.score from the App all the way down. I'm using 
+This is a code snippet of my D3.js functionality, and this is being passed the this.props.score from the App all the way down. 
 
 ```
 import React, { Component } from 'react';
@@ -149,9 +146,14 @@ class Chart extends Component {
 
 
 componentDidMount() {
-   console.log('this is from D3', this.props.score)
+   console.log('this is from did Mount', this.props.score)
     this.renderChart();
   }
+
+componentDidUpdate() {
+  console.log('inside did update', this.props.score)
+  this.renderChart();
+}
 
 renderChart() {
     let scaleLinearColor = d3.scaleLinear()
@@ -160,10 +162,19 @@ renderChart() {
     // create an svg
     let node = this.node
     // DATA BIND
+    let oldrects= d3.select(node).selectAll("rect").remove()
     let rects = d3.select(node).selectAll("rect").data([this.props.score])
     // ENTER
     rects
       .enter()
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", d => d*10)
+      .attr("height", 10)
+      .style("fill", (d,i) => scaleLinearColor(d))
+      //Update
+    rects
       .append("rect")
       .attr("x", 0)
       .attr("y", 0)
@@ -193,18 +204,13 @@ export default Chart;
  Use this section to list of all major issues encountered and their resolution.
 
 #### SAMPLE.....
-**ERROR**: App.jsx:26 Uncaught (in promise) SyntaxError: Unexpected token S in JSON at position 0
-    at App.jsx:26                               
-**RESOLUTION**: 
-
-
 **ERROR**: this.props.categories.map is not a function                              
 **RESOLUTION**: The props were not being passed all the way through from the App so needed to go back and console.log
 
 **ERROR**: Broken image tag on the city                              
 **RESOLUTION**: I used conditional rendering to ensure that the broken image tag showed an empty string if it was not being called or there was no input. 
 
-**ERROR**: Misspelling the value input causing it to break                              
-**RESOLUTION**: I went through and solved a lot of the errors but it would error off in different ways like no S in Json and this.props.maps not a function 
+**ERROR**: D3 data was not updating after first input                           
+**RESOLUTION**: Needed to add a .remove to ensure the bar charts were updating with the new data anytime a new input was passed in
 
 

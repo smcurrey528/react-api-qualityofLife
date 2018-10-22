@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from "./Components/Nav.jsx";
 import Categories from './Components/Categories.jsx';
-import Compare from './Components/Compare.jsx'
+
 
 class App extends Component {
  constructor(props) {
@@ -19,7 +19,7 @@ class App extends Component {
 
   }
  }
-
+//data fetch for city scores and category names
  getData() {
     let url =`https://api.teleport.org/api/urban_areas/slug:${this.state.value}/scores/`
     fetch(url)
@@ -40,7 +40,7 @@ class App extends Component {
         )
       })
     }
-
+//data fetch for city images
  getAPI() {
     let url =`https://api.teleport.org/api/urban_areas/slug:${this.state.value}/images/`
     fetch(url)
@@ -49,19 +49,17 @@ class App extends Component {
         console.log('this is from CityImage', data)
          this.setState(prevState => ({
         image: data.photos[0].image.web,
-
         }),
-
-        )
-       })
-    }
-
+      )
+    })
+  }
+//function for input
   onInput(e) {
     this.setState({
       value: e.target.value
     })
   }
-
+//function for submit
     onEnter(e) {
       e.preventDefault()
       this.getData()
