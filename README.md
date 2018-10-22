@@ -19,7 +19,7 @@ This is my schedule I will use to keep track of my progress throughout the week 
 
 ## Project Description
 
-QualLi is a web application built in React.js, which the user will be able to select a top city in the world from a dropdown, and the site will return Quality of Life score. This information will be feteched from the Teleport Public Api and will incorporate 25 components. 
+QualLi is a web application built in React.js, which the user can type in a top city in the world from an input field, and the site will return Quality of Life score as well as the cityscape background image. The information was fetched from the Teleport Public API and will be shown using text as well as D3.js.
 
 ## Wireframes
 
