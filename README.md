@@ -1,5 +1,4 @@
 # QualLi Project Overview
-# QualLi Project Overview
 ![](https://i.imgur.com/yxCvhFE.png)
 
 ## Project Schedule
