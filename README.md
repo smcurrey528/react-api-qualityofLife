@@ -116,7 +116,7 @@ Helper functions should be generic enought that they can be reused in other appl
 
 | Function | Description | 
 | --- | :---: |  
-| Capitalize | This capitalized the first letter in a string of text |
+| LowerCase | This makes the letters in the string input lowercase. |
 | Replace | This replaced the html tags in the summary rendering |  
 
 
