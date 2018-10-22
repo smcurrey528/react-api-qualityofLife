@@ -9,8 +9,8 @@ This is my schedule I will use to keep track of my progress throughout the week 
 |  Day | Deliverable | Status
 |---|---| ---|
 |Monday, Oct 15th| Project Description | Complete 
-|Tuesday, Oct 16th| Wireframes / Priority Matrix / Functional Components | Incomplete
-|Wednesday, Oct 17th| Core Application Structure (HTML, CSS, etc.) | Incomplete
+|Tuesday, Oct 16th| Wireframes / Priority Matrix / Functional Components | Complete
+|Wednesday, Oct 17th| Core Application Structure (HTML, CSS, etc.) |Complete
 |Thursday, Oct 18th| Pseudocode / actual code | Complete
 |Friday, Oct 19th| Initial Clickable Model  | Complete
 |Sunday, Oct 21st| MVP | Complete
