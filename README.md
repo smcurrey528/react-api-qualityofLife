@@ -74,7 +74,7 @@ https://i.imgur.com/aMivvqN.jpg
 Architectural Design:
 </br> 
 
-![](https://i.imgur.com/0Xkwjvy.jpg)
+https://i.imgur.com/0Xkwjvy.jpg
 
 The main component will be the APP which will contain the "Header", "Menu", and "Categories." The Header will contain the Nav. The Menu will contain the Hero Image. The Categories will hold the following components: 
 Catergory Items
