@@ -102,14 +102,14 @@ Below are my broken down timeframes for the project
 | Adding Menu| H | 1hrs| .5hrs | .5hrs |
 | Fetch API| H | 1hrs| 1hrs | 1hrs |
 | Creating Components| H | 5hrs| 5hrs | 5hrs |
-| Working with API | H | 4hrs| 6hrs | 6hrs |
-| Conditional Rendering| L | 2hrs| 2hrs | 2hrs |
-| HTML and CSS| L | 3hrs| 5hrs | 5hrs |
+| Working with API | H | 6hrs| 6hrs | 6hrs |
+| Conditional Rendering| L | 2hrs| 1hrs | 1hrs |
+| HTML and CSS| L | 6hrs| 5hrs | 5hrs |
 | CRA Built| H | .10hrs| .10hrs | .10hrs |
 | Deployed via GitHub| H | .05hrs| .05hrs | .05hrs |
-| D3| L | 6hrs| 8hrs | 8hrs |
+| D3| L | 10hrs| 8hrs | 8hrs |
 | Mobile Responsive| H | 3hrs| 3hrs | 3hrs |
-| Total | H | 36.15hrs| 36.65hrs | 34.65hrs |
+| Total | H | 34.15hrs| 31.65hrs | 31.65hrs |
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
