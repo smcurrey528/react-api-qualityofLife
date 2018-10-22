@@ -19,7 +19,7 @@ This is my schedule I will use to keep track of my progress throughout the week 
 
 ## Project Description
 
-QualLi is a web application built in React.js, which the user will be able to select a top city in the world from a dropdown, and the site will return Quality of Life score. This information will be feteched from the Teleport Public Api and will incorporate 25 components. 
+QualLi is a web application built in React.js, which the user can type in a top city in the world from an input field, and the site will return Quality of Life score as well as the cityscape background image. The information was fetched from the Teleport Public API and will be shown using text as well as D3.js.
 
 ## Wireframes
 
@@ -87,16 +87,15 @@ Based on the initial logic defined in the previous sections try and breakdown th
 
 | Component | Description | 
 | --- | :---: |  
-| App | This will render the app and include the API fetch call and other components | 
-| Nav | This will render the header include the nav |
-| Categories | This will render the mapped category list |  
-| CategoryItems | This will render the mapped category items individual sections | 
-| CityImage | This will render the input value's background image |   
-| Chart | This will render the D3 of the data from the API | 
+| App | This renders the app and include the API fetch call and other components | 
+| Nav | This renders the header include the nav |
+| Categories | This renders the mapped category list |  
+| CategoryItems | This renders the mapped category items individual sections | 
+| CityImage | This renders the input value's background image |   
+| Chart | This renders the D3 of the data from the API | 
 
 
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
+Below are my broken down timeframes for the project:
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
