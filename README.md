@@ -102,8 +102,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | Adding Menu| H | 1hrs| .5hrs | .5hrs |
 | Fetch API| H | 1hrs| 1hrs | 1hrs |
-| Creating Components| H | 3hrs| 3hrs | 3hrs |
-| Working with API | H | 4hrs| 5hrs | 5 |
+| Creating Components| H | 5hrs| 5hrs | 5hrs |
+| Working with API | H | 4hrs| 6hrs | 6hrs |
 | Conditional Rendering| L | 2hrs| 2hrs | 2hrs |
 | HTML and CSS| L | 3hrs| 5hrs | 5hrs |
 | CRA Built| H | .10hrs| .10hrs | .10hrs |
@@ -126,7 +126,7 @@ D3: D3.js is a JavaScript library for producing dynamic, interactive data visual
 
 ## Code Snippet
 
-This is a code snippet of my D3.js functionality, and this is being passed the this.props.score from the App all the way down. I'm using 
+This is a code snippet of my D3.js functionality, and this is being passed the this.props.score from the App all the way down. 
 
 ```
 import React, { Component } from 'react';
@@ -211,6 +211,5 @@ export default Chart;
 **RESOLUTION**: I used conditional rendering to ensure that the broken image tag showed an empty string if it was not being called or there was no input. 
 
 **ERROR**: D3 data was not updating after first input                           
-**RESOLUTION**: Needed to add a .remove to ensure the bar charts were updating with the new data anytime a new input was passed in
-                             
+**RESOLUTION**: Needed to add a .remove to ensure the bar charts were updating with the new data anytime a new input was passed in                  
 
