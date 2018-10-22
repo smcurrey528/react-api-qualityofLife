@@ -9,12 +9,12 @@ This is my schedule I will use to keep track of my progress throughout the week 
 |  Day | Deliverable | Status
 |---|---| ---|
 |Monday, Oct 15th| Project Description | Complete 
-|Tuesday, Oct 16th| Wireframes / Priority Matrix / Functional Components | Complete
-|Wednesday, Oct 17th| Core Application Structure (HTML, CSS, etc.) | Complete
+|Tuesday, Oct 16th| Wireframes / Priority Matrix / Functional Components | Incomplete
+|Wednesday, Oct 17th| Core Application Structure (HTML, CSS, etc.) | Incomplete
 |Thursday, Oct 18th| Pseudocode / actual code | Complete
-|Friday, Oct 19th| Initial Clickable Model  | Incomplete
-|Sunday, Oct 21st| MVP | Incomplete
-|Monday, Oct 22nd| Present | Incomplete
+|Friday, Oct 19th| Initial Clickable Model  | Complete
+|Sunday, Oct 21st| MVP | Complete
+|Monday, Oct 22nd| Present | Complete
 
 
 ## Project Description
@@ -74,26 +74,12 @@ https://i.imgur.com/aMivvqN.jpg
 Architectural Design:
 </br> 
 
-https://i.imgur.com/0Xkwjvy.jpg
+![](https://i.imgur.com/0Xkwjvy.jpg)
 
 The main component will be the APP which will contain the "Header", "Menu", and "Categories." The Header will contain the Nav. The Menu will contain the Hero Image. The Categories will hold the following components: 
- -Housing
- -Cost of Living
- -Startups
- -Venture Capital
- -Travel Community
- -Commute
- -Business Freedom
- -Safety
- -Healthcare
- -Education
- -Enivorment 
- -Economy
- -Taxation
- -Internet Access
- -Leisure
- -Outdoors
- -Tolerance
+Catergory Items
+D3 Chart
+Compare
 
 ## Functional Components
 
@@ -101,51 +87,107 @@ Based on the initial logic defined in the previous sections try and breakdown th
 
 | Component | Description | 
 | --- | :---: |  
-| Header | This will render the header include the nav | 
-| Footer | This will render the header include the nav | 
+| App | This will render the app and include the API fetch call and other components | 
+| Nav | This will render the header include the nav |
+| Categories | This will render the mapped category list |  
+| CategoryItems | This will render the mapped category items individual sections | 
+| CityImage | This will render the input value's background image |   
+| Chart | This will render the D3 of the data from the API | 
+| Compare | This will render a comparision page of different cities |
 
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Menu| H | 1hrs| 1hrs | 1hrs |
+| Adding Menu| H | 1hrs| .5hrs | .5hrs |
 | Fetch API| H | 1hrs| 1hrs | 1hrs |
-| Creating Components| H | 3hrs| 2hrs | 2hrs |
-| Working with API | H | 4hrs| 7hrs | hrs |
-| Conditional Rendering| L | 2hrs| hrs | hrs |
-| HTML and CSS| L | 3hrs| 2hrs | hrs |
+| Creating Components| H | 3hrs| 3hrs | 3hrs |
+| Working with API | H | 4hrs| 5hrs | 5 |
+| Conditional Rendering| L | 2hrs| 1hrs | 1hrs |
+| HTML and CSS| L | 3hrs| 5hrs | 5hrs |
 | CRA Built| H | .10hrs| .10hrs | .10hrs |
 | Deployed via GitHub| H | .05hrs| .05hrs | .05hrs |
-| D3| L | 3hrs| 5hrs | hrs |
-| CSS Animations| L | 3hrs| hrs | hrs |
-| Routing| L | 3hrs| hrs | hrs |
-| Location Storage| L | 2hrs| hrs | hrs |
-| Comparisons| L | 5hrs| hrs | hrs |
-| Total | H | 36.15hrs| 20.15hrs | 5hrs |
+| D3| L | 3hrs| 8hrs | 7hrs |
+| CSS Animations| L | 3hrs| 0hrs | 0hrs |
+| Routing| L | 3hrs| 1hrs | 1hrs |
+| Mobile Responsive| H | 3hrs| 2hrs | 2hrs |
+| Comparisons| L | 5hrs| 8hrs | 8hrs |
+| Total | H | 36.15hrs| 34.65hrs | 34.65hrs |
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
 
 | Function | Description | 
 | --- | :---: |  
-| Capitalize | This will capitalize the first letter in a string of text | 
+| Capitalize | This capitalized the first letter in a string of text |
+| Replace | This replaced the html tags in the summary rendering |  
+
 
 ## Additional Libraries
 D3: D3.js is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. It makes use of the widely implemented SVG, HTML5, and CSS standards. This will be used to better visualize the data of the quality of life scores. 
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
+This is a code snippet of my D3.js functionality, and this is being passed the this.props.score from the App all the way down. I'm using 
 
 ```
-function reverse(string) {
-  // here is the code to reverse a string of text
+import React, { Component } from 'react';
+import * as d3 from "d3";
+
+
+
+class Chart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      score: this.props.score,
+      width: 100,
+      height: 10
+    };
+  }
+
+
+componentDidMount() {
+   console.log('this is from D3', this.props.score)
+    this.renderChart();
+  }
+
+renderChart() {
+    let scaleLinearColor = d3.scaleLinear()
+      .domain([0, 10])
+      .range(["red", "blue"]);
+    // create an svg
+    let node = this.node
+    // DATA BIND
+    let rects = d3.select(node).selectAll("rect").data([this.props.score])
+    // ENTER
+    rects
+      .enter()
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", d => d*10)
+      .attr("height", 10)
+      .style("fill", (d,i) => scaleLinearColor(d))
+  }
+
+  render() {
+    return (
+      <svg
+        ref={node => this.node = node}
+        width='100'
+        height='10'
+      />
+    );
+  }
 }
+
+export default Chart;
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ The main changes were cutting down on my components since I mapped through the array so I used two main components to render the data list. I also decided to use an input form field instead of the dropdown menu with the 300 options.
 
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
@@ -157,7 +199,11 @@ function reverse(string) {
 
 
 **ERROR**: this.props.categories.map is not a function                              
-**RESOLUTION**: 
+**RESOLUTION**: The props were not being passed all the way through from the App so needed to go back and console.log
 
 **ERROR**: Broken image tag on the city                              
-**RESOLUTION**: 
+**RESOLUTION**: I used conditional rendering to ensure that the broken image tag showed an empty string if it was not being called or there was no input. 
+
+**ERROR**: Misspelling the value input causing it to break                              
+**RESOLUTION**: I went through and solved a lot of the errors but it would error off in different ways like no S in Json and this.props.maps not a function the city                              
+
