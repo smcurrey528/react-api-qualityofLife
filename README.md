@@ -202,7 +202,6 @@ export default Chart;
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
 
-#### SAMPLE.....
 **ERROR**: this.props.categories.map is not a function                              
 **RESOLUTION**: The props were not being passed all the way through from the App so needed to go back and console.log
 
