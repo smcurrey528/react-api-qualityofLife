@@ -97,7 +97,6 @@ class App extends Component {
             onClick={(e) => this.onEnter(e)}> SUMBIT
           </button>
         </form>
-        <Compare/>
             <section className="cityImage">
               { cityImg }
             </section>

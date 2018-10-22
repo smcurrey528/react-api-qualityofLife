@@ -14,25 +14,17 @@ class Chart extends Component {
   }
 
 
-  componentDidMount() {
+componentDidMount() {
    console.log('this is from D3', this.props.score)
     this.renderChart();
   }
 
-  componentDidUpdate() {
-    this.renderChart()
-  }
-
-  renderChart() {
-    // xScale
-
+renderChart() {
     let scaleLinearColor = d3.scaleLinear()
       .domain([0, 10])
       .range(["red", "blue"]);
-
     // create an svg
     let node = this.node
-
     // DATA BIND
     let rects = d3.select(node).selectAll("rect").data([this.props.score])
     // ENTER
@@ -43,17 +35,13 @@ class Chart extends Component {
       .attr("y", 0)
       .attr("width", d => d*10)
       .attr("height", 10)
-
       .style("fill", (d,i) => scaleLinearColor(d))
-
-
   }
 
   render() {
     return (
       <svg
         ref={node => this.node = node}
-
         width='100'
         height='10'
       />
