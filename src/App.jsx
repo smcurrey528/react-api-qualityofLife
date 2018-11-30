@@ -102,11 +102,10 @@ class App extends Component {
           <p> {description} </p>
           <Categories categories={this.state.categories}/>
         </div>
+
     );
   }
 }
 
 
 export default App;
-
-

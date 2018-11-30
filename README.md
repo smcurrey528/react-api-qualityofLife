@@ -95,13 +95,16 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Chart | This renders the D3 of the data from the API | 
 
 
+
 Below are my broken down timeframes for the project:
+
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Adding Menu| H | 1hrs| .5hrs | .5hrs |
 | Fetch API| H | 1hrs| 1hrs | 1hrs |
 | Creating Components| H | 5hrs| 5hrs | 5hrs |
+
 | Working with API | H | 4hrs| 6hrs | 6hrs |
 | Conditional Rendering| L | 2hrs| 2hrs | 2hrs |
 | HTML and CSS| L | 3hrs| 5hrs | 5hrs |
@@ -111,14 +114,16 @@ Below are my broken down timeframes for the project:
 | Mobile Responsive| H | 3hrs| 3hrs | 3hrs |
 | Total | H | 36.15hrs| 36.65hrs | 34.65hrs |
 
+
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
 
 | Function | Description | 
 | --- | :---: |  
-| Capitalize | This capitalized the first letter in a string of text |
-| Replace | This replaced the html tags in the summary rendering |  
 
+| Capitalize | This capitalized the first letter in a string of text |
+=======
+| LowerCase | This makes the letters in the string input lowercase. |
 
 ## Additional Libraries
 D3: D3.js is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. It makes use of the widely implemented SVG, HTML5, and CSS standards. This will be used to better visualize the data of the quality of life scores. 
@@ -199,6 +204,7 @@ export default Chart;
 ## Change Log
  The main changes were cutting down on my components since I mapped through the array so I used two main components to render the data list. I also decided to use an input form field instead of the dropdown menu with the 300 options.
 
+
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
 
@@ -211,5 +217,4 @@ export default Chart;
 
 **ERROR**: D3 data was not updating after first input                           
 **RESOLUTION**: Needed to add a .remove to ensure the bar charts were updating with the new data anytime a new input was passed in
-
 
